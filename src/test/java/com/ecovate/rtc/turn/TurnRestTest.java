@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.net.InetSocketAddress;
 import java.net.URL;
+import java.nio.file.Files;
 import java.security.KeyPair;
 import java.util.Base64;
 
@@ -85,7 +86,7 @@ public class TurnRestTest {
         userName, 
         password, 
         "*");
-    File testFile = File.createTempFile("testFile1", "testing");
+    File testFile = Files.createTempFile("testFile1", "testing").toFile();
 
     RandomAccessFile raf = new RandomAccessFile(testFile, "rw");
     raf.write(trc.toString().getBytes());
